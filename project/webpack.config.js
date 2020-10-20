@@ -2,6 +2,7 @@ const path = require('path')
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 module.exports = {
   entry: './src/index.js',
 
@@ -58,6 +59,14 @@ module.exports = {
     }),
     new CleanWebpackPlugin(),
     new VueLoaderPlugin(),
+    new CopyWebpackPlugin([{
+      // 来自于哪个路径的文件
+      from:path.resolve(__dirname,'src/public'),
+      // 打包的时候被复制到那个路径去
+      to:path.resolve(__dirname,'dist'),
+      // 忽略掉index.html这个文件
+      ignore:['index.html']
+    }])
   ],
 
   // mode:'development',

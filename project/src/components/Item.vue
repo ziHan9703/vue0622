@@ -1,23 +1,28 @@
 <template>
     <div>
-         <li class="list-group-item">
+        <li class="list-group-item">
             <div class="handle">
-              <a href="javascript:;">删除</a>
+              <a href="javascript:;" @click="deletRider">删除</a>
             </div>
-            <p class="user"><span >xxx</span><span>说:</span></p>
-            <p class="centence">React不错!</p>
+            <p class="user"><span >{{rider.name}}</span><span>说:</span></p>
+            <p class="centence">{{rider.content}}</p>
           </li>
     </div>
 </template>
 
 <script>
     export default {
-        
+        props:['rider','deletAppR','index'],
+        methods: {
+          deletRider(){
+            this.deletAppR(this.index)
+          }
+        },
     }
 </script>
 
 <style scoped>
-li {
+  li {
   transition: .5s;
   overflow: hidden;
 }
