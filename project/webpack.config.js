@@ -29,7 +29,7 @@ module.exports = {
       //解析css
       {
         test: /\.css$/,
-        use: [ 'vue-style-loader', 'css-loader' ]
+        use: [ 'vue-style-loader','style-loader', 'css-loader' ]
       },
 
       //解析图片
